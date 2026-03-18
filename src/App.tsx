@@ -47,7 +47,7 @@ const Navbar = () => {
         ) : (
           <a href="#" className="flex items-center" aria-label="IGO Agritech home">
             <img
-              src="/assets/logo.jpg"
+              src="./assets/logo.jpg"
               alt="IGO Agri Tech Farms"
               className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-12' : 'h-16'}`}
               onError={() => setIsLogoMissing(true)}

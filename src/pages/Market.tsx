@@ -1,21 +1,28 @@
+import { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
-import { TrendingUp, TrendingDown, Minus, RefreshCw, MapPin } from 'lucide-react';
+import { TrendingUp, TrendingDown, Minus, RefreshCw, MapPin, Search } from 'lucide-react';
+import { PRODUCTS, getAllCategories } from '../config/products';
 import { MarketPriceGraph } from '../components/MarketPriceGraph';
 import { PriceCalculator } from '../components/PriceCalculator';
 
-const PRODUCTS = [
-  { name: 'Cucumber', price: 28, prev: 26, unit: 'kg', category: 'Vegetables', emoji: '🥒' },
-  { name: 'Oyster Mushroom', price: 198, prev: 177, unit: 'kg', category: 'Mushroom', emoji: '🍄' },
-  { name: 'Button Mushroom', price: 220, prev: 215, unit: 'kg', category: 'Mushroom', emoji: '🍄' },
-  { name: 'Microgreens', price: 289, prev: 268, unit: 'kg', category: 'Greens', emoji: '🌱' },
-  { name: 'Spinach', price: 35, prev: 36, unit: 'kg', category: 'Vegetables', emoji: '🥬' },
-  { name: 'Tomato', price: 42, prev: 42, unit: 'kg', category: 'Vegetables', emoji: '🍅' },
-  { name: 'Brinjal', price: 30, prev: 28, unit: 'kg', category: 'Vegetables', emoji: '🍆' },
-  { name: 'Bitter Gourd', price: 38, prev: 40, unit: 'kg', category: 'Vegetables', emoji: '🥒' },
-  { name: 'Lady Finger', price: 32, prev: 30, unit: 'kg', category: 'Vegetables', emoji: '🌿' },
-];
-
 export const Market = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Get all categories
+  const categories = getAllCategories();
+
+  // Filter and search products
+  const filteredProducts = useMemo(() => {
+    return PRODUCTS.filter((product) => {
+      const categoryMatch = !selectedCategory || product.category === selectedCategory;
+      const searchMatch =
+        !searchQuery ||
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.category.toLowerCase().includes(searchQuery.toLowerCase());
+      return categoryMatch && searchMatch;
+    });
+  }, [selectedCategory, searchQuery]);
   const now = new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
 
   return (
@@ -46,32 +53,82 @@ export const Market = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-10 space-y-10">
+        {/* Filters */}
+        <div className="space-y-4">
+          {/* Search Bar */}
+          <div className="relative">
+            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-agri-earth-400" />
+            <input
+              type="text"
+              placeholder="Search products by name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 border border-agri-earth-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-agri-green-500"
+            />
+          </div>
+
+          {/* Category Filter */}
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedCategory(null)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                selectedCategory === null
+                  ? 'bg-agri-green-600 text-white'
+                  : 'bg-agri-earth-100 text-agri-earth-900 hover:bg-agri-earth-200'
+              }`}
+            >
+              All Categories
+            </button>
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                  selectedCategory === category
+                    ? 'bg-agri-green-600 text-white'
+                    : 'bg-agri-earth-100 text-agri-earth-900 hover:bg-agri-earth-200'
+                }`}
+              >
+                {category} ({PRODUCTS.filter((p) => p.category === category).length})
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Price Table */}
         <div className="card overflow-hidden">
           <div className="p-6 border-b border-agri-earth-100">
             <h2 className="font-bold text-agri-earth-900">Today's Buyback Rates</h2>
-            <p className="text-sm text-agri-earth-500">IGO guaranteed prices — no negotiation needed</p>
+            <p className="text-sm text-agri-earth-500">
+              IGO guaranteed prices — no negotiation needed · {filteredProducts.length} products
+            </p>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-agri-earth-50 text-left">
-                  <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">Product</th>
-                  <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">Category</th>
-                  <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">IGO Rate</th>
-                  <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">Change</th>
-                  <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">Trend</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-agri-earth-50">
-                {PRODUCTS.map((p, i) => {
-                  const change = p.price - p.prev;
-                  const pct = ((change / p.prev) * 100).toFixed(1);
-                  const isUp = change > 0;
-                  const isDown = change < 0;
-                  return (
+            {filteredProducts.length > 0 ? (
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-agri-earth-50 text-left">
+                    <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">
+                      Product
+                    </th>
+                    <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">
+                      Category
+                    </th>
+                    <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">
+                      IGO Rate
+                    </th>
+                    <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">
+                      Demand
+                    </th>
+                    <th className="px-6 py-3 text-xs font-semibold text-agri-earth-500 uppercase tracking-wide">
+                      Season
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-agri-earth-50">
+                  {filteredProducts.map((product, i) => (
                     <motion.tr
-                      key={i}
+                      key={product.id}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.04 }}
@@ -79,31 +136,37 @@ export const Market = () => {
                     >
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <span className="text-2xl">{p.emoji}</span>
-                          <span className="font-semibold text-agri-earth-900">{p.name}</span>
+                          <span className="text-2xl">{product.emoji}</span>
+                          <span className="font-semibold text-agri-earth-900">{product.name}</span>
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="badge-green text-[11px]">{p.category}</span>
+                        <span className="badge-green text-[11px]">{product.category}</span>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-lg font-black text-agri-green-600">₹{p.price}/{p.unit}</span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className={`text-sm font-semibold ${isUp ? 'text-agri-green-600' : isDown ? 'text-red-500' : 'text-agri-earth-400'}`}>
-                          {isUp ? '+' : ''}{change} ({isUp ? '+' : ''}{pct}%)
+                        <span className="text-lg font-black text-agri-green-600">
+                          ₹{product.basePrice}/{product.unit}
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        {isUp && <TrendingUp size={18} className="text-agri-green-600" />}
-                        {isDown && <TrendingDown size={18} className="text-red-500" />}
-                        {!isUp && !isDown && <Minus size={18} className="text-agri-earth-400" />}
+                        <span
+                          className={`badge-${
+                            product.demand === 'Very High' || product.demand === 'High' ? 'green' : 'amber'
+                          } text-[10px]`}
+                        >
+                          {product.demand}
+                        </span>
                       </td>
+                      <td className="px-6 py-4 text-sm text-agri-earth-600">{product.season}</td>
                     </motion.tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <div className="p-12 text-center">
+                <p className="text-agri-earth-500">No products found matching your search.</p>
+              </div>
+            )}
           </div>
         </div>
 

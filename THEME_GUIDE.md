@@ -30,7 +30,9 @@ export function Card() {
       backgroundColor: colors.green[600],
       color: colors.earth[900],
       padding: colors.green[600],
-      borderColor: colors.earth[200]
+      borderColor: colors.earth[200],
+      // Yellow accent
+      accentColor: colors.yellow[500]
     }}>
       Content
     </div>
@@ -152,11 +154,48 @@ earth: {
 }
 ```
 
+**Use Cases:**
+- Primary text and backgrounds
+- Borders and dividers
+- Neutral states
+
+### Yellow Colors (Bright, Warm Accent)
+```typescript
+yellow: {
+  50: '#fefce8',    // Lightest
+  100: '#fef3c7',
+  200: '#fde68a',
+  300: '#fcd34d',
+  400: '#fbbf24',
+  500: '#f59e0b',   // Primary yellow
+  600: '#d97706',
+  700: '#b45309',
+  800: '#92400e',
+  900: '#78350f',   // Darkest
+}
+```
+
 ### Accent Colors
 ```typescript
 amber: { 400: '#fbbf24', 500: '#f59e0b' }
 status: { success, error, warning, info }
 social: { whatsapp, facebook, twitter, linkedin }
+```
+
+### Yellow Color (Bright, Warm Accent)
+```typescript
+yellow: {
+  50: '#fefce8',    // Lightest
+  100: '#fef3c7',
+  200: '#fde68a',
+  300: '#fcd34d',
+  400: '#fbbf24',
+  500: '#f59e0b',   // Primary yellow
+  600: '#d97706',
+  700: '#b45309',
+  800: '#92400e',
+  900: '#78350f',   // Darkest
+}
 ```
 
 ---
@@ -398,18 +437,48 @@ src/
 | Purpose | File | How to Use |
 |---------|------|-----------|
 | React components | `src/config/theme.ts` | `import { colors } from '../config/theme'` |
-| CSS/Tailwind | CSS variables | `var(--color-green-600)` |
-| Tailwind utilities | Tailwind classes | `bg-agri-green-600` |
+| CSS/Tailwind | CSS variables | `var(--color-green-600)` or `var(--color-yellow-500)` |
+| Tailwind utilities | Tailwind classes | `bg-agri-green-600` or `text-yellow-600` |
 | Animations | `theme.animations` | `{...theme.animations.motion.fadeIn}` |
 | Spacing consistently | `spacing` object | `spacing[4]`, `spacing[6]` |
+| Yellow accents | `colors.yellow` | `colors.yellow[500]` for vibrant, `colors.yellow[100]` for light |
 
 ---
 
+## 🌟 Yellow Color Palette (New)
+
+The yellow color palette has been added for bright, warm accents throughout the app!
+
+### Recommended Usage:
+- **`yellow[500]`** - Vibrant warnings and CTAs
+- **`yellow[600]`** - Warning states and bold accents
+- **`yellow[100]`** - Light backgrounds and highlights
+- **`yellow[900]`** - Dark text/borders for contrast
+
+### Example:
+```typescript
+import { colors } from '../config/theme';
+
+export function WarningBadge() {
+  return (
+    <span style={{
+      backgroundColor: colors.yellow[100],
+      color: colors.yellow[900],
+      borderColor: colors.yellow[500],
+      border: '1px solid'
+    }}>
+      ⚠️ Warning
+    </span>
+  );
+}
+```
+
 ## 💡 Need Help?
 
-- Check `src/config/theme.ts` for all available tokens
-- Use TypeScript autocomplete: `colors.` → shows all options
+- Check `src/config/theme.ts` for all available tokens (including new yellow colors)
+- Use TypeScript autocomplete: `colors.` → shows all options including `yellow`
 - Reference existing components for usage patterns
 - All CSS variables are in document.documentElement.style
+- Yellow colors use same shade system (50-900) as green
 
-Happy theming! 🎨
+Happy theming! 🎨✨

@@ -30,6 +30,14 @@
 }
 
 @layer base {
+  html {
+    scroll-padding-top: 112px;
+  }
+  section,
+  [id] {
+    scroll-margin-top: 112px;
+  }
+
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

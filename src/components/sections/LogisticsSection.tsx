@@ -46,7 +46,7 @@ export const LogisticsSection = () => {
           <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1586528116493-a7a712823e74?auto=format&fit=crop&q=80&w=1000"
                 alt="Logistics"
                 className="w-full h-80 object-cover"
                 referrerPolicy="no-referrer"

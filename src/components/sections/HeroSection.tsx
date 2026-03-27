@@ -11,7 +11,7 @@ export const HeroSection = () => (
     {/* Background pattern */}
     <div className="absolute inset-0 z-0 overflow-hidden">
       <img
-        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000"
+        src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&q=80&w=2000"
         alt=""
         className="w-full h-full object-cover opacity-[0.07]"
         referrerPolicy="no-referrer"

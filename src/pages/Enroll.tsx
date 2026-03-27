@@ -56,7 +56,7 @@ export const Enroll = () => {
               {/* Video placeholder — replace src with actual video */}
               <div className="relative rounded-3xl overflow-hidden bg-agri-earth-900 aspect-video flex items-center justify-center group cursor-pointer shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200"
+                  src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1200"
                   alt="How IGO works"
                   className="absolute inset-0 w-full h-full object-cover opacity-40"
                   referrerPolicy="no-referrer"

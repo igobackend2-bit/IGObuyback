@@ -31,10 +31,11 @@ const AppRoutes = () => {
 
   return (
     <>
-      <MarketTicker />
       <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location}>
+      <MarketTicker />
+      <div className="pt-[112px]">
+        <AnimatePresence mode="wait">
+          <Routes location={location}>
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
           <Route path="/market" element={<PageWrapper><Market /></PageWrapper>} />
           <Route path="/sell" element={<PageWrapper><SellPage /></PageWrapper>} />
@@ -44,6 +45,7 @@ const AppRoutes = () => {
           <Route path="*" element={<PageWrapper><Home /></PageWrapper>} />
         </Routes>
       </AnimatePresence>
+      </div>
       <Footer />
       <WhatsAppButton />
     </>

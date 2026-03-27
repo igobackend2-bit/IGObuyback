@@ -104,7 +104,7 @@ export const MarketTicker = () => {
   }
 
   return (
-    <div className="bg-agri-earth-900 border-b border-white/10 overflow-hidden">
+    <div className="bg-agri-earth-900 border-b border-white/10 sticky top-16 z-40 overflow-hidden">
       <div className="flex items-center">
         {/* Label */}
         <div className="shrink-0 flex items-center gap-2 px-4 py-2 bg-agri-green-600 z-10">

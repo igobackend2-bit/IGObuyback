@@ -46,9 +46,9 @@ export const Navbar = () => {
             </div>
           ) : (
             <img
-              src="/logo.jpg"
+              src="/logo.svg"
               alt="IGO Agritech"
-              className="h-10 w-auto object-contain"
+              className="h-12 w-auto object-contain"
               onError={() => setIsLogoMissing(true)}
             />
           )}

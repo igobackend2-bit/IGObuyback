@@ -4,7 +4,9 @@
       "Bash(find /c/Users/Admin/desktop/IGObuyback/src -type f \\\\\\( -name \"*.ts\" -o -name \"*.tsx\" \\\\\\) -exec wc -l {} +)",
       "mcp__ide__getDiagnostics",
       "Bash(xargs grep:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)"
     ]
   }
 }

@@ -1,5 +1,8 @@
 import { StatsCounter } from '../components/StatsCounter';
 import { HeroSection } from '../components/sections/HeroSection';
+import { AdvancedMarketTicker } from '../components/AdvancedMarketTicker';
+import { VisionMissionSection } from '../components/sections/VisionMissionSection';
+import { TrustedPartnersSection } from '../components/sections/TrustedPartnersSection';
 import { HowItWorksSection } from '../components/sections/HowItWorksSection';
 import { ProductsSection } from '../components/sections/ProductsSection';
 import { MarketSection } from '../components/sections/MarketSection';
@@ -15,8 +18,11 @@ import { CTASection } from '../components/sections/CTASection';
  */
 export const Home = () => (
   <>
+    <AdvancedMarketTicker />
     <HeroSection />
     <StatsCounter />
+    <VisionMissionSection />
+    <TrustedPartnersSection />
     <HowItWorksSection />
     <ProductsSection />
     <MarketSection />

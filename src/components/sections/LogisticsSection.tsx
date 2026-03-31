@@ -5,7 +5,7 @@ import { CreditCard, ShieldCheck, Truck, Zap } from 'lucide-react';
  */
 export const LogisticsSection = () => {
   const features = [
-    { icon: <Truck size={20} />, title: 'Farm Pickup', desc: 'Direct from your gate' },
+    { icon: <Truck size={20} />, title: 'Smart Logistics', desc: 'Optimized farm collection' },
     { icon: <Zap size={20} />, title: 'Live Tracking', desc: 'Real-time GPS updates' },
     { icon: <CreditCard size={20} />, title: '7-Day Payment', desc: 'Bank transfer direct' },
     { icon: <ShieldCheck size={20} />, title: 'Cold Storage', desc: 'Quality preserved' },

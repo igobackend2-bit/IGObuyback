@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence, motion } from 'motion/react';
 import { I18nProvider } from './lib/i18n';
 import { NotificationProvider } from './lib/notification-context';
+import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { MarketTicker } from './components/MarketTicker';
-import { WhatsAppButton } from './components/WhatsAppButton';
 import { LiveChat } from './components/LiveChat';
 import { Home } from './pages/Home';
 import { Market } from './pages/Market';
@@ -18,6 +17,8 @@ import { Enroll } from './pages/Enroll';
 import { Contact } from './pages/Contact';
 import { Referrals } from './pages/Referrals';
 import { Settings } from './pages/Settings';
+import { AdminLogin } from './pages/AdminLogin';
+import { AdminProducts } from './pages/AdminProducts';
 
 const PageWrapper = ({ children }: { children: React.ReactNode }) => (
   <motion.div
@@ -32,30 +33,35 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => (
 
 const AppRoutes = () => {
   const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
 
   return (
     <>
-      <Navbar />
-      <MarketTicker />
-      <div className="pt-[112px]">
+      {!isAdminRoute && <Navbar />}
+      <div className={isAdminRoute ? '' : 'pt-[64px]'}>
         <AnimatePresence mode="wait">
           <Routes location={location}>
-          <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-          <Route path="/market" element={<PageWrapper><Market /></PageWrapper>} />
-          <Route path="/catalog" element={<PageWrapper><ProductCatalog /></PageWrapper>} />
-          <Route path="/sell" element={<PageWrapper><SellPage /></PageWrapper>} />
-          <Route path="/buy" element={<PageWrapper><BuyPage /></PageWrapper>} />
-          <Route path="/enroll" element={<PageWrapper><Enroll /></PageWrapper>} />
-          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-          <Route path="/referrals" element={<PageWrapper><Referrals /></PageWrapper>} />
-          <Route path="/settings" element={<PageWrapper><Settings /></PageWrapper>} />
-          <Route path="*" element={<PageWrapper><Home /></PageWrapper>} />
-        </Routes>
-      </AnimatePresence>
+            {/* Public Routes */}
+            <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+            <Route path="/market" element={<PageWrapper><Market /></PageWrapper>} />
+            <Route path="/catalog" element={<PageWrapper><ProductCatalog /></PageWrapper>} />
+            <Route path="/sell" element={<PageWrapper><SellPage /></PageWrapper>} />
+            <Route path="/buy" element={<PageWrapper><BuyPage /></PageWrapper>} />
+            <Route path="/enroll" element={<PageWrapper><Enroll /></PageWrapper>} />
+            <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+            <Route path="/referrals" element={<PageWrapper><Referrals /></PageWrapper>} />
+            <Route path="/settings" element={<PageWrapper><Settings /></PageWrapper>} />
+
+            {/* Admin Routes */}
+            <Route path="/admin" element={<PageWrapper><AdminLogin /></PageWrapper>} />
+            <Route path="/admin/products" element={<PageWrapper><AdminProducts /></PageWrapper>} />
+
+            <Route path="*" element={<PageWrapper><Home /></PageWrapper>} />
+          </Routes>
+        </AnimatePresence>
       </div>
-      <Footer />
-      <WhatsAppButton />
-      <LiveChat />
+      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <LiveChat />}
     </>
   );
 };
@@ -65,9 +71,11 @@ export default function App() {
     <ErrorBoundary>
       <NotificationProvider>
         <I18nProvider>
-          <Router>
-            <AppRoutes />
-          </Router>
+          <AdminAuthProvider>
+            <Router>
+              <AppRoutes />
+            </Router>
+          </AdminAuthProvider>
         </I18nProvider>
       </NotificationProvider>
     </ErrorBoundary>

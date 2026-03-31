@@ -266,7 +266,7 @@ export const PriceComparisonWidget = () => {
         whileTap={{ scale: 0.98 }}
         className="w-full mt-8 px-6 py-4 bg-gradient-to-r from-agri-green-600 to-agri-green-700 text-white font-bold rounded-xl hover:shadow-xl transition-shadow"
       >
-        Start Earning Fair Prices →
+        Start Earning Best Price →
       </motion.button>
     </div>
   );

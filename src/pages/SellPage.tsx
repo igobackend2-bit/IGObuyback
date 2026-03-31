@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { CheckCircle2, TrendingUp, Leaf, Clock, MapPin, Shield } from 'lucide-react';
+import { CheckCircle2, TrendingUp, Leaf, Clock, MapPin, Shield, Truck } from 'lucide-react';
 import { BuybackForm } from '../components/BuybackForm';
 
 export const SellPage = () => (
@@ -10,17 +10,17 @@ export const SellPage = () => (
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
           <div className="badge-green bg-white/20 text-white w-fit mb-4">For Farmers</div>
           <h1 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">
-            Sell Your Harvest at Fair Prices
+            Sell Your Harvest at Best Price
           </h1>
           <p className="text-agri-green-100 text-lg mb-8 leading-relaxed">
-            No middlemen, no negotiation. Get guaranteed fair market prices for your produce with free farm pickup and payment within 7 days.
+            No middlemen, no negotiation. Get guaranteed fair market prices for your produce with trusted logistics and payment in 7 days.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: <TrendingUp size={18} />, text: 'Fair Prices' },
+              { icon: <TrendingUp size={18} />, text: 'Best Price' },
               { icon: <Leaf size={18} />, text: 'All Products' },
               { icon: <Clock size={18} />, text: '7-Day Payment' },
-              { icon: <Leaf size={18} />, text: 'Free Pickup' },
+              { icon: <Truck size={18} />, text: 'Smart Logistics' },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -96,7 +96,7 @@ export const SellPage = () => (
                 { icon: <Shield size={18} />, text: 'Zero Middlemen' },
                 { icon: <TrendingUp size={18} />, text: 'Fair Market Rates' },
                 { icon: <Clock size={18} />, text: 'Fast Payment' },
-                { icon: <MapPin size={18} />, text: 'Free Farm Pickup' },
+                { icon: <MapPin size={18} />, text: 'Logistics & Delivery' },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -124,14 +124,6 @@ export const SellPage = () => (
               Have questions? Our farm support team is here to help you maximize your earnings.
             </p>
             <div className="space-y-2">
-              <a
-                href="https://wa.me/919999999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white py-3 rounded-lg font-semibold transition-all hover:scale-105"
-              >
-                💬 WhatsApp Support
-              </a>
               <a
                 href="tel:+919999999999"
                 className="w-full flex items-center justify-center gap-2 bg-agri-green-600 hover:bg-agri-green-700 text-white py-3 rounded-lg font-semibold transition-all hover:scale-105"

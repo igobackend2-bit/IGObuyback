@@ -21,8 +21,8 @@ export const HowItWorksSection = () => {
     },
     {
       icon: '🚚',
-      title: 'We Pick Up',
-      desc: 'Our logistics team arrives at your farm gate for pickup — no transport hassles for you.',
+      title: 'Logistics Dispatch',
+      desc: 'Our partner transport solution picks up from your farm gate and brings it into our network quickly.',
       color: 'from-orange-500 to-orange-600',
     },
     {

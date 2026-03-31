@@ -77,7 +77,7 @@ export const EnhancedHeroSection = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight"
             >
-              Fair Prices.
+              Best Price.
               <br />
               <span className="bg-gradient-to-r from-agri-green-400 to-green-300 bg-clip-text text-transparent">
                 Zero Middlemen.
@@ -217,7 +217,7 @@ export const EnhancedHeroSection = () => {
               <div className="space-y-2 text-xs text-gray-400">
                 <p>✓ 2,500+ new farmers onboarded</p>
                 <p>✓ ₹50Cr+ total transactions</p>
-                <p>✓ 98% customer satisfaction</p>
+                <p>✓ 100% Farmer Satisfaction</p>
                 <p>✓ Available in 12 states</p>
               </div>
             </motion.div>

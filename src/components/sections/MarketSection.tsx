@@ -26,6 +26,9 @@ export const MarketSection = () => {
           <p className="text-agri-earth-500 max-w-lg mx-auto">
             We guarantee fair prices based on live market data — no middlemen, no manipulation.
           </p>
+          <p className="mt-4 text-sm font-semibold text-agri-green-600">
+            100% on-time payment guarantee • 26 product verticals • Fully transparent mandi rates
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

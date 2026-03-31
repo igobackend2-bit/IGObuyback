@@ -16,8 +16,8 @@ export const Navbar = () => {
   const navLinks = [
     { label: t('nav_home'), to: '/' },
     { label: t('nav_market'), to: '/market' },
-    { label: '🎁 Earn Rewards', to: '/referrals' },
-    { label: 'Enroll (Mandi)', to: '/enroll' },
+    { label: t('nav_earn_rewards'), to: '/referrals' },
+    { label: t('nav_enroll_mandi'), to: '/enroll' },
     { label: t('nav_contact'), to: '/contact' },
   ];
 
@@ -40,16 +40,16 @@ export const Navbar = () => {
         <Link to="/" className="flex items-center gap-2 shrink-0">
           {isLogoMissing ? (
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-agri-green-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 rounded-lg flex items-center justify-center border-2 border-white shadow-lg">
                 <Sprout className="text-white" size={18} />
               </div>
-              <span className="font-black text-agri-green-800 tracking-tight">IGO AGRITECH</span>
+              <span className="font-extrabold text-2xl tracking-wider text-slate-900 uppercase">{t('brand_name')}</span>
             </div>
           ) : (
             <img
-              src="/logo.svg"
-              alt="IGO Agritech"
-              className="h-12 w-auto object-contain"
+              src="/logo-royal.svg"
+              alt={t('brand_name')}
+              className="h-14 w-auto object-contain"
               onError={() => setIsLogoMissing(true)}
             />
           )}
@@ -76,10 +76,10 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-3">
           <LanguageToggle />
           <Link to="/settings" className="px-3 py-2 rounded-xl text-sm font-medium text-agri-earth-600 hover:text-agri-green-700 hover:bg-agri-green-50 transition-colors">
-            ⚙️ Settings
+            {t('nav_settings')}
           </Link>
           <Link to="/sell" className="btn-secondary py-2 px-4 text-sm">{t('nav_sell')}</Link>
-          <Link to="/enroll" className="btn-primary py-2 px-4 text-sm">Join Mandi</Link>
+          <Link to="/enroll" className="btn-primary py-2 px-4 text-sm">{t('nav_join_mandi')}</Link>
         </div>
 
         {/* Mobile toggle */}

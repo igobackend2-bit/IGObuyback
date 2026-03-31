@@ -22,17 +22,17 @@ const TickerCard = ({ item }: TickerCardProps) => {
   const isDown = change < 0;
 
   return (
-    <div className="flex items-center gap-3 px-5 py-2 border-r border-white/10 shrink-0">
-      <div>
-        <span className="text-xs text-white/50 font-medium">{item.category}</span>
-        <div className="text-sm font-bold text-white">{item.name}</div>
+    <div className="flex items-center gap-3 px-5 py-3 border-r border-white/10 shrink-0 min-w-[220px] bg-gradient-to-br from-slate-800 to-slate-900 text-white">
+      <div className="min-w-[96px]">
+        <span className="text-[11px] text-amber-300 font-bold uppercase tracking-wide">{item.category}</span>
+        <div className="text-base font-extrabold tracking-tight text-white/90">{item.name}</div>
       </div>
       <div className="text-right">
-        <div className="text-sm font-black text-agri-green-300">₹{item.price}/{item.unit}</div>
-        <div className={`text-[11px] flex items-center gap-0.5 font-semibold ${isUp ? 'text-agri-green-400' : isDown ? 'text-red-400' : 'text-white/40'}`}>
-          {isUp && <TrendingUp size={10} />}
-          {isDown && <TrendingDown size={10} />}
-          {!isUp && !isDown && <Minus size={10} />}
+        <div className="text-base font-black text-amber-300">₹{item.price}/{item.unit}</div>
+        <div className={`text-xs flex items-center gap-1 font-semibold ${isUp ? 'text-emerald-300' : isDown ? 'text-rose-300' : 'text-slate-300'}`}>
+          {isUp && <TrendingUp size={12} />}
+          {isDown && <TrendingDown size={12} />}
+          {!isUp && !isDown && <Minus size={12} />}
           {isUp ? '+' : ''}{change}
         </div>
       </div>
@@ -104,10 +104,10 @@ export const MarketTicker = () => {
   }
 
   return (
-    <div className="bg-agri-earth-900 border-b border-white/10 sticky top-16 z-40 overflow-hidden">
+    <div className="bg-slate-900 border-b border-gold-500/30 sticky top-16 z-40 overflow-hidden shadow-[0_0_20px_rgba(255,215,0,0.2)]">
       <div className="flex items-center">
         {/* Label */}
-        <div className="shrink-0 flex items-center gap-2 px-4 py-2 bg-agri-green-600 z-10">
+        <div className="shrink-0 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 z-10 rounded-r-full">
           <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
           <span className="text-xs font-black text-white uppercase tracking-widest whitespace-nowrap">{t('ticker_label')}</span>
         </div>

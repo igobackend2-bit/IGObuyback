@@ -315,19 +315,20 @@ export const ReferralProgram = () => {
       >
         <h3 className="text-xl font-bold text-agri-earth-900 mb-6">Referral Tiers</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {REFERRAL_TIERS.map((tier, idx) => (
-            <motion.div
-              key={tier.level}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + idx * 0.05 }}
-              className={`rounded-2xl p-6 border-2 transition-all ${
-                tier.unlocked
-                  ? `bg-gradient-to-br ${tier.color.replace('from-', '').replace('to-', '')} text-white border-transparent shadow-lg`
-                  : 'bg-gray-50 border-gray-200 text-gray-600'
-              }`}
-            >
-              <div className="flex items-start justify-between mb-4">
+          {REFERRAL_TIERS.map((tier, idx) => {
+            const tierClass = tier.unlocked
+              ? `bg-gradient-to-br ${tier.color} text-white border-transparent shadow-lg select-none` 
+              : 'bg-gray-50 border-gray-200 text-gray-600 opacity-80';
+
+            return (
+              <motion.div
+                key={tier.level}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + idx * 0.05 }}
+                className={`rounded-2xl p-6 border-2 transition-all transform ${tierClass} hover:-translate-y-1 hover:shadow-xl cursor-pointer min-h-[210px]`}
+              >
+                <div className="flex items-start justify-between mb-4">
                 <div>
                   <p className="text-3xl mb-1">{tier.badge}</p>
                   <h4 className="font-bold text-lg">{tier.name}</h4>
@@ -355,7 +356,8 @@ export const ReferralProgram = () => {
                 </motion.div>
               )}
             </motion.div>
-          ))}
+          );
+          })}
         </div>
       </motion.div>
 

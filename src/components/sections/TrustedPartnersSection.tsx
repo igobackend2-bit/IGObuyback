@@ -2,69 +2,117 @@ import { motion } from 'motion/react';
 import { Award, Users, ShoppingBag } from 'lucide-react';
 
 /* ══════════════════════════════════════════════════════
-   Partner brand logos — using uploaded images
+   Accurate inline SVG logos matching uploaded brand logos
    ══════════════════════════════════════════════════════ */
 
-/** Farmers Factory logo component */
-const FarmerFactoryLogo = () => (
-  <img src="/partners/farmers-factory.jpg" alt="Farmers Factory" className="w-56 h-20 object-contain" />
+/** Farmers Factory — green circle, F-leaf design, shovel */
+const FarmersFactoryLogo = ({ size = 120 }: { size?: number }) => (
+  <svg viewBox="0 0 200 220" width={size} height={size * 1.1} xmlns="http://www.w3.org/2000/svg">
+    {/* Circle background */}
+    <circle cx="100" cy="95" r="90" fill="#3a7d50"/>
+    {/* Upper white leaf (top of F) */}
+    <path d="M90 30 Q130 30 145 60 Q130 80 90 75 Z" fill="white"/>
+    {/* Middle green leaf */}
+    <path d="M85 75 Q130 75 140 100 Q125 120 85 115 Z" fill="#7dc85a"/>
+    {/* Water drop */}
+    <path d="M100 130 Q88 150 88 160 Q88 175 100 175 Q112 175 112 160 Q112 150 100 130Z" fill="white"/>
+    <circle cx="100" cy="172" r="5" fill="#3a7d50"/>
+    {/* Shovel/pick handle */}
+    <line x1="55" y1="25" x2="145" y2="160" stroke="#7a3010" strokeWidth="7" strokeLinecap="round"/>
+    {/* Shovel head */}
+    <path d="M42 18 L68 18 L65 32 L45 32 Z" fill="#8a8a8a"/>
+    {/* Brand text */}
+    <text x="100" y="205" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900"
+          fill="#2d6840" textAnchor="middle" letterSpacing="1">FARMERS FACTORY</text>
+  </svg>
 );
 
-/** Zepto logo component */
-const ZeptoLogo = () => (
-  <img src="/partners/zepto.jpg" alt="Zepto" className="w-32 h-11 object-contain" />
-);
-
-/** Blinkit logo component */
-const BlinkitLogo = () => (
-  <img src="/partners/blinkit.jpg" alt="Blinkit" className="w-32 h-11 object-contain" />
-);
-
-/** Instamart logo component */
-const InstamrtLogo = () => (
-  <img src="/partners/instamart.jpg" alt="Instamart" className="w-24 h-24 object-contain" />
-);
-
-/** bigbasket logo component */
-const BigBasketLogo = () => (
-  <img src="/partners/bigbasket.jpg" alt="BigBasket" className="w-40 h-14 object-contain" />
-);
-
-/** DMart logo component */
+/** DMart — cream bg, green star-D pyramid logo + tagline */
 const DMartLogo = () => (
-  <img src="/partners/dmart.jpg" alt="DMart" className="w-36 h-14 object-contain" />
+  <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="80" rx="6" fill="#f5f0e0"/>
+    {/* D shape */}
+    <text x="12" y="52" fontFamily="Arial Black, sans-serif" fontSize="44" fontWeight="900" fill="#1a6b30">D</text>
+    {/* Star above D */}
+    <text x="46" y="24" fontSize="14" fill="#1a6b30">★</text>
+    {/* Mart text */}
+    <text x="58" y="52" fontFamily="Arial Black, sans-serif" fontSize="38" fontWeight="900" fill="#1a6b30">Mart</text>
+    {/* Tagline */}
+    <text x="12" y="70" fontFamily="Arial, sans-serif" fontSize="10" fill="#1a6b30" letterSpacing="0.5">Daily Savings  Daily Discounts</text>
+  </svg>
 );
 
-/** TAJ logo component */
+/** BigBasket — bb square + text + TATA Enterprise */
+const BigBasketLogo = () => (
+  <svg viewBox="0 0 220 70" xmlns="http://www.w3.org/2000/svg">
+    <rect width="220" height="70" rx="6" fill="white"/>
+    {/* bb green square */}
+    <rect x="6" y="8" width="48" height="48" rx="8" fill="#5aaa1e"/>
+    <text x="30" y="44" fontFamily="Arial Black, sans-serif" fontSize="28" fontWeight="900"
+          fill="white" textAnchor="middle">bb</text>
+    {/* bigbasket text */}
+    <text x="65" y="38" fontFamily="Arial Black, sans-serif" fontSize="24" fontWeight="900" fill="#cc1f27">big</text>
+    <text x="107" y="38" fontFamily="Arial Black, sans-serif" fontSize="24" fontWeight="900" fill="#5aaa1e">basket</text>
+    {/* A TATA Enterprise */}
+    <text x="65" y="56" fontFamily="Arial, sans-serif" fontSize="11" fill="#1a5caa" letterSpacing="0.3">A </text>
+    <text x="76" y="56" fontFamily="Arial Black, sans-serif" fontSize="11" fontWeight="900" fill="#1a5caa">TATA</text>
+    <text x="103" y="56" fontFamily="Arial, sans-serif" fontSize="11" fill="#1a5caa"> Enterprise</text>
+  </svg>
+);
+
+/** Instamart (Swiggy) — orange square, pin icon + instamart text */
+const InstamartLogo = () => (
+  <svg viewBox="0 0 180 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="180" height="80" rx="8" fill="white"/>
+    {/* Orange rounded square icon */}
+    <rect x="8" y="8" width="58" height="64" rx="14" fill="#fc5734"/>
+    {/* Location pin shape */}
+    <path d="M37 20 Q52 20 52 34 Q52 46 37 60 Q22 46 22 34 Q22 20 37 20Z" fill="white"/>
+    {/* Inner swoosh */}
+    <path d="M29 34 Q37 28 45 34 Q37 40 29 34Z" fill="#fc5734"/>
+    {/* instamart text */}
+    <text x="74" y="36" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900" fill="#1a1a1a">insta</text>
+    <text x="74" y="58" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900" fill="#1a1a1a">mart</text>
+  </svg>
+);
+
+/** TAJ Hotels — gold serif TAJ + geometric snowflake ornament */
 const TajLogo = () => (
-  <img src="/partners/taj.jpg" alt="TAJ" className="w-32 h-20 object-contain" />
+  <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="160" height="100" rx="6" fill="#faf6ee"/>
+    {/* Snowflake/geometric ornament */}
+    <g transform="translate(80,28)">
+      {[0,45,90,135,180,225,270,315].map((a, i) => (
+        <line key={i}
+          x1="0" y1="0"
+          x2={Math.cos(a * Math.PI / 180) * 16}
+          y2={Math.sin(a * Math.PI / 180) * 16}
+          stroke="#b8960c" strokeWidth="2.5" strokeLinecap="round"/>
+      ))}
+      <circle cx="0" cy="0" r="5" fill="#b8960c"/>
+    </g>
+    {/* TAJ text in gold serif */}
+    <text x="80" y="80" fontFamily="Georgia, 'Times New Roman', serif" fontSize="40"
+          fontWeight="700" fill="#b8960c" textAnchor="middle" letterSpacing="8">TAJ</text>
+  </svg>
 );
 
-/* ══════════════════════════════════════════════════════
-   Partner data — FARMERS FACTORY FIRST
-   ══════════════════════════════════════════════════════ */
 const PARTNERS = [
-  { name: 'Zepto',           Logo: ZeptoLogo,      tagline: 'Quick commerce'     },
-  { name: 'Blinkit',         Logo: BlinkitLogo,    tagline: '10-min delivery'    },
-  { name: 'Swiggy Instamart',Logo: InstamrtLogo,   tagline: 'Grocery delivery'   },
-  { name: 'bigbasket',       Logo: BigBasketLogo,  tagline: 'Online grocery'     },
-  { name: 'DMart',           Logo: DMartLogo,      tagline: 'Retail chain'       },
-  { name: 'TAJ',             Logo: TajLogo,        tagline: 'Royal hospitality'  },
+  { Logo: InstamartLogo,  name: 'Swiggy Instamart', tagline: 'Grocery delivery'  },
+  { Logo: BigBasketLogo,  name: 'bigbasket',         tagline: 'Online grocery'   },
+  { Logo: DMartLogo,      name: 'DMart',             tagline: 'Retail chain'     },
+  { Logo: TajLogo,        name: 'TAJ Hotels',        tagline: 'Royal hospitality'},
 ];
 
-/* ══════════════════════════════════════════════════════
-   Section
-   ══════════════════════════════════════════════════════ */
 export const TrustedPartnersSection = () => (
   <section className="py-20 bg-gray-950 text-white overflow-hidden relative" id="partners">
-    {/* Glow */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-green-600/5 rounded-full blur-3xl" />
     </div>
 
     <div className="relative max-w-7xl mx-auto px-6">
 
-      {/* ── Section Header ── */}
+      {/* ── Header ── */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -84,34 +132,29 @@ export const TrustedPartnersSection = () => (
         </p>
       </motion.div>
 
-      {/* ── FARMERS FACTORY — MAIN FEATURED FIRST ── */}
+      {/* ── FARMERS FACTORY — MAIN FEATURED ── */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-8 rounded-3xl bg-gradient-to-r from-green-900/70 via-green-800/60 to-green-900/70 border border-green-600/40 p-8 flex flex-col md:flex-row items-center gap-8"
+        className="mb-10 rounded-3xl bg-gradient-to-r from-green-900/70 via-green-800/60 to-green-900/70 border border-green-600/40 p-8 flex flex-col md:flex-row items-center gap-8"
       >
-        {/* Badge */}
-        <div className="shrink-0 flex flex-col items-center gap-3">
+        <div className="shrink-0 flex flex-col items-center gap-4">
           <span className="text-xs font-black text-lime-400 uppercase tracking-widest bg-lime-500/15 border border-lime-500/30 px-4 py-1.5 rounded-full">
             ⭐ Main Partner — India's Farmer Network
           </span>
-          {/* Farmers Factory Logo */}
-          <div className="bg-white rounded-2xl px-6 py-4 shadow-xl">
-            <FarmerFactoryLogo />
-          </div>
+          <FarmersFactoryLogo size={140} />
         </div>
 
-        {/* Info */}
         <div className="flex-1 text-center md:text-left">
           <h3 className="text-2xl md:text-3xl font-black text-white mb-2">Farmers Factory</h3>
           <p className="text-green-300 text-base font-medium mb-4">
             Direct farmer collective partnership · FPO network integration
           </p>
           <p className="text-gray-400 text-sm leading-relaxed max-w-lg">
-            IGO Farmgate Mandi's primary farmer-network partner. Together we bring 1,200+ small and marginal farmers into a transparent, fair-price buyback system — zero middlemen, on-time payment, grade-based pricing.
+            IGO Farmgate Mandi's primary farmer-network partner. Together we bring 1,200+ small and marginal
+            farmers into a transparent, fair-price buyback system — zero middlemen, on-time payment, grade-based pricing.
           </p>
-          {/* Stat pills */}
           <div className="flex flex-wrap gap-3 mt-5 justify-center md:justify-start">
             {[
               { icon: <Users size={14}/>, val: '1,200+', sub: 'Partner Farmers India-wide' },
@@ -130,19 +173,19 @@ export const TrustedPartnersSection = () => (
         </div>
       </motion.div>
 
-      {/* ── 6 Buyer Partners Grid ── */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+      {/* ── 4 Buyer Partner Logos ── */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
         {PARTNERS.map((p, idx) => (
           <motion.div
             key={p.name}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: idx * 0.08 }}
-            whileHover={{ scale: 1.06, y: -5 }}
-            className="flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/8 rounded-2xl hover:bg-white/10 hover:border-lime-500/30 transition-all cursor-default"
+            transition={{ delay: idx * 0.1 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/8 rounded-2xl hover:border-lime-500/30 transition-all cursor-default"
           >
-            <div className="flex items-center justify-center h-16">
+            <div className="w-full flex items-center justify-center h-20 rounded-xl overflow-hidden">
               <p.Logo />
             </div>
             <div className="text-center">
@@ -153,7 +196,6 @@ export const TrustedPartnersSection = () => (
         ))}
       </div>
 
-      {/* ── Bottom note ── */}
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

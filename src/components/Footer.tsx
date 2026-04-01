@@ -45,7 +45,7 @@ export const Footer = () => (
           </Link>
 
           <p className="text-gray-400 text-sm leading-relaxed">
-            Empowering farmers through guaranteed buyback, fair pricing, and technology-driven logistics across Tamil Nadu & beyond.
+            Empowering farmers through guaranteed buyback, fair pricing, and technology-driven logistics across India & beyond.
           </p>
 
           {/* Social Icons */}
@@ -153,7 +153,7 @@ export const Footer = () => (
           <ul className="space-y-4 mb-6">
             <li className="flex items-start gap-3">
               <MapPin size={15} className="text-lime-500 mt-0.5 shrink-0" />
-              <span className="text-gray-400">IGO Farmgate Mandi, Tamil Nadu, India</span>
+              <span className="text-gray-400">IGO Farmgate Mandi, India</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={15} className="text-lime-500 shrink-0" />
@@ -219,7 +219,7 @@ export const Footer = () => (
               <Star key={i} size={11} fill="#fbbf24" className="text-yellow-400" />
             ))}
           </div>
-          <span className="text-xs text-gray-400 font-medium">4.9/5 from 800+ farmers across Tamil Nadu</span>
+          <span className="text-xs text-gray-400 font-medium">4.9/5 from 800+ farmers across India</span>
         </div>
       </motion.div>
     </div>

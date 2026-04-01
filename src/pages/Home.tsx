@@ -14,7 +14,7 @@ import { CTASection } from '../components/sections/CTASection';
  * Home Page — SMO-approved section order
  * 1. Live Market Ticker
  * 2. Hero — "You Farm. We Buy. You Profit."
- * 3. How IGOBuyback Works — Best Price Guaranteed
+ * 3. How IGO Farmgate Mandi Works — Best Price Guaranteed
  * 4. Real-Time Market Rates
  * 5. Products We Buy
  * 6. Stats (1200+ farmers, ₹4.5Cr, 98%)

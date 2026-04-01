@@ -36,10 +36,10 @@ export const Footer = () => (
             </div>
             <div>
               <div className="text-base font-black tracking-tight leading-none text-white">
-                IGO<span className="text-lime-400">Buyback</span>
+                IGO<span className="text-lime-400">Farmgate Mandi</span>
               </div>
               <div className="text-[9px] font-semibold leading-none uppercase tracking-widest text-gray-500 mt-0.5">
-                Agritech Platform
+                Agricultural Marketplace
               </div>
             </div>
           </Link>
@@ -153,7 +153,7 @@ export const Footer = () => (
           <ul className="space-y-4 mb-6">
             <li className="flex items-start gap-3">
               <MapPin size={15} className="text-lime-500 mt-0.5 shrink-0" />
-              <span className="text-sm text-gray-400">IGO Agritech Farms, Tamil Nadu, India</span>
+              <span className="text-gray-400">IGO Farmgate Mandi, Tamil Nadu, India</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={15} className="text-lime-500 shrink-0" />
@@ -163,8 +163,8 @@ export const Footer = () => (
             </li>
             <li className="flex items-center gap-3">
               <Mail size={15} className="text-lime-500 shrink-0" />
-              <a href="mailto:info@igobuyback.com" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
-                info@igobuyback.com
+              <a href="mailto:info@igofarmgate.com" className="text-sm text-gray-400 hover:text-lime-400 transition-colors">
+                info@igofarmgate.com
               </a>
             </li>
           </ul>
@@ -193,7 +193,7 @@ export const Footer = () => (
         transition={{ duration: 0.6, delay: 0.4 }}
       >
         <div className="flex items-center gap-2">
-          <span>© 2026 IGOBuyback · IGO Agritech Farms. All Rights Reserved.</span>
+          <span>© 2026 IGO Farmgate Mandi · IGO Agricultural Marketplace. All Rights Reserved.</span>
           <motion.div animate={{ scale: [1, 1.3, 1] }} transition={{ duration: 2, repeat: Infinity }}>
             <Heart size={10} className="text-red-400" />
           </motion.div>

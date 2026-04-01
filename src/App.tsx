@@ -19,6 +19,7 @@ import { Referrals } from './pages/Referrals';
 import { Settings } from './pages/Settings';
 import { AdminLogin } from './pages/AdminLogin';
 import { AdminProducts } from './pages/AdminProducts';
+import { FarmerDashboard } from './pages/FarmerDashboard';
 
 const PageWrapper = ({ children }: { children: React.ReactNode }) => (
   <motion.div
@@ -51,6 +52,9 @@ const AppRoutes = () => {
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
             <Route path="/referrals" element={<PageWrapper><Referrals /></PageWrapper>} />
             <Route path="/settings" element={<PageWrapper><Settings /></PageWrapper>} />
+
+            {/* Farmer Dashboard */}
+            <Route path="/farmer/:farmerId" element={<PageWrapper><FarmerDashboard /></PageWrapper>} />
 
             {/* Admin Routes */}
             <Route path="/admin" element={<PageWrapper><AdminLogin /></PageWrapper>} />

@@ -21,8 +21,8 @@ export const HowItWorksSection = () => {
     },
     {
       icon: '🚚',
-      title: 'Logistics Dispatch',
-      desc: 'Our partner transport solution picks up from your farm gate and brings it into our network quickly.',
+      title: 'Smart Logistics',
+      desc: '',
       color: 'from-orange-500 to-orange-600',
     },
     {
@@ -67,7 +67,7 @@ export const HowItWorksSection = () => {
             Simple Process
           </div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-agri-earth-900 mb-4">
-            How IGO Buyback Works
+            How IGOBuyback Works
           </h2>
           <p className="text-lg text-agri-earth-600 max-w-xl mx-auto font-medium">
             From harvest to payment in 5 simple steps. We handle everything in between.
